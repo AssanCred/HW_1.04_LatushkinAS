@@ -27,13 +27,9 @@ final class ViewController: UIViewController {
     
     // MARK: IB Actions
     @IBAction func actionSlider() {
-        if redSlider.value != 0 {
-            redLabel.text = String(format:"%.2f", redSlider.value)
-        } else if greenSlider.value != 0 {
-            greenLabel.text = String(format:"%.2f", greenSlider.value)
-        } else if blueSlider.value != 0 {
-            blueLabel.text = String(format:"%.2f", blueSlider.value)
-        }
+        redLabel.text = String(format:"%.2f", redSlider.value)
+        greenLabel.text = String(format:"%.2f", greenSlider.value)
+        blueLabel.text = String(format:"%.2f", blueSlider.value)
         updateColor()
     }
     

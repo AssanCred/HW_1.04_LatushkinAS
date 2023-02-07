@@ -8,6 +8,8 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    // MARK: IBOutlets
     @IBOutlet var colorView: UIView!
     
     @IBOutlet var redSlider: UISlider!
@@ -18,11 +20,16 @@ class ViewController: UIViewController {
     @IBOutlet var greenLabel: UILabel!
     @IBOutlet var blueLabel: UILabel!
 
-    
+    // MARK: Life Cycles Methods
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
+    override func viewWillLayoutSubviews() {
+        colorView.layer.cornerRadius = colorView.frame.height / 20
+    }
+    
+    // MARK: IB Actions
     @IBAction func actionRedSlider() {
         redLabel.text = String(format:"%.2f", redSlider.value)
         updateColor()
@@ -38,6 +45,7 @@ class ViewController: UIViewController {
         updateColor()
     }
     
+    // MARK: Private Method
     private func updateColor() {
         var red: CGFloat = 0
         var green: CGFloat = 0
@@ -56,6 +64,4 @@ class ViewController: UIViewController {
         let color = UIColor(red: red, green: green, blue: blue, alpha: 1)
         colorView.backgroundColor = color
     }
-
 }
-
